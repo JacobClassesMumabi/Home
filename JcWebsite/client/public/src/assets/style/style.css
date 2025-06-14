@@ -50,3 +50,39 @@ footer{
     padding-right: 100px;
 }
 
+.navbar {
+  background-color: #8b153f; /* Your header color */
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+
+.btn {
+  color: #8b153f;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navdiv {
+  display: flex;
+  justify-content: flex-end; /* Push items to the right */
+}
+
