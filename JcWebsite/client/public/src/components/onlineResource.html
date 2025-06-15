@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Resources</title>
+  <link rel="stylesheet" href="../assets/style/style.css" />
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <main>
+    <div class="parentContainer">
+      <div class="childContainer video-box" data-id="2Wbx_g_OVj8"></div>
+      <div class="childContainer video-box" data-id="-IcYOXuvFPY"></div>
+      <div class="childContainer video-box" data-id="Wcfp0iQpYM4" style="margin-right: 0;"></div>
+    </div>
+  
+    <div class="parentContainer">
+      <div class="childContainer video-box" data-id="WFwMcuS3CD0"></div>
+      <div class="childContainer video-box" data-id="6f2NP3EyFOw"></div>
+      <div class="childContainer video-box" data-id="sJBUdN8I8go" style="margin-right: 0;"></div>
+    </div>
+
+    <div class="parentContainer">
+      <div class="childContainer video-box" data-id="m5oulkdHr_Q"></div>
+      <div class="childContainer video-box" data-id="S5s9jZvm9FU"></div>
+    </div>
+    
+    <div class="playlists">
+      <h3 id="titlePlaylist">More of our playlist</h3>
+      
+      <div class="playlistContainer">
+        <div id="playlistPC">
+          <iframe width="100%" height="400" 
+            src="https://www.youtube.com/embed/videoseries?list=PLP5vX1GLRiIPfwodXkbBQ4t-v2uMC5T8O" 
+            frameborder="0"
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div id="playlistPC">
+          <iframe width="100%" height="400" 
+            src="https://www.youtube.com/embed/videoseries?list=PLP5vX1GLRiIMBXI5FcT2mmHIIdnODKPbi" 
+            frameborder="0"
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div id="playlistPC">
+          <iframe width="100%" height="400" 
+            src="https://www.youtube.com/embed/videoseries?list=PLP5vX1GLRiIM6UxpYf5iDVqghmjKvrR_N" 
+            frameborder="0"
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div id="playlistPC">
+          <iframe width="100%" height="400" 
+            src="https://www.youtube.com/embed/videoseries?list=PLP5vX1GLRiIMJNhymAEVEKb0MVShil-fX" 
+            frameborder="0"
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div id="playlistPC">
+          <iframe width="100%" height="400" 
+            src="https://www.youtube.com/embed/videoseries?list=PLP5vX1GLRiIOaDogbTM3pzhpgCXZ5hAGM" 
+            frameborder="0"
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        
+      </div>
+
+
+  </main>
+  
+
+  <div id="footer"></div>
+
+  <script>
+    // Load header
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // Load footer
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+
+      const videoContainers = document.querySelectorAll('.video-container');
+
+      videoContainers.forEach(container => {
+        const video = container.querySelector('video');
+        const link = container.getAttribute('data-link');
+
+        // Play video on hover
+        container.addEventListener('mouseenter', () => {
+          video.play();
+        });
+
+        // Pause video on mouse leave
+        container.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0; // Optional: Reset to beginning
+        });
+
+        // Redirect to YouTube on click
+        container.addEventListener('click', () => {
+          window.open(link, '_blank'); // Opens in new tab
+        });
+      });
+
+  // YouTube hover preview logic
+  document.querySelectorAll('.video-box').forEach(box => {
+    const videoId = box.getAttribute('data-id');
+    const img = document.createElement('img');
+    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    box.appendChild(img);
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0`;
+    box.appendChild(iframe);
+
+    box.addEventListener('mouseenter', () => {
+      iframe.style.display = 'block';
+      img.style.display = 'none';
+    });
+
+    box.addEventListener('mouseleave', () => {
+      iframe.style.display = 'none';
+      img.style.display = 'block';
+    });
+
+    box.addEventListener('click', () => {
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+    });
+  });
+
+  </script>
+
+
+</body>
+</html>
