@@ -4,8 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Online Resources</title>
-  <link rel="stylesheet" href="../assets/style/style.css" />
+  <link rel="stylesheet" href="/JcWebsite/client/public/src/assets/style/style.css" />
+      <link rel="stylesheet" href="../public/src/assets/style/style.css">
 </head>
+
+<style>
+
+.parentContainer{
+  /* background-color: gray;  */
+  height: 100%; 
+  width: 90%;  
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5%;
+}
+.childContainer{
+  /* background-color: pink;  */
+  height: 300px; 
+  width:450px; 
+  margin-right: 10%;
+  border-radius: 20px;
+  border: solid 1px black;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.childContainer img,
+.childContainer iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+.childContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#titlePlaylist {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.playlistContainer {
+  width: 90%;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+#playlistPC{
+  margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .parentContainer {
+    flex-direction: column; 
+    align-items: center;
+    margin: 10px;
+  }
+  .childContainer {
+    width: 70%;
+    height: 200px;
+    margin: 0;
+    margin-top: 10%;
+  }
+}
+</style>
 <body>
 
   <div id="header"></div>
@@ -81,70 +151,7 @@
 
   <div id="footer"></div>
 
-  <script>
-    // Load header
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-
-    // Load footer
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
-
-      const videoContainers = document.querySelectorAll('.video-container');
-
-      videoContainers.forEach(container => {
-        const video = container.querySelector('video');
-        const link = container.getAttribute('data-link');
-
-        // Play video on hover
-        container.addEventListener('mouseenter', () => {
-          video.play();
-        });
-
-        // Pause video on mouse leave
-        container.addEventListener('mouseleave', () => {
-          video.pause();
-          video.currentTime = 0; // Optional: Reset to beginning
-        });
-
-        // Redirect to YouTube on click
-        container.addEventListener('click', () => {
-          window.open(link, '_blank'); // Opens in new tab
-        });
-      });
-
-  // YouTube hover preview logic
-  document.querySelectorAll('.video-box').forEach(box => {
-    const videoId = box.getAttribute('data-id');
-    const img = document.createElement('img');
-    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-    box.appendChild(img);
-
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0`;
-    box.appendChild(iframe);
-
-    box.addEventListener('mouseenter', () => {
-      iframe.style.display = 'block';
-      img.style.display = 'none';
-    });
-
-    box.addEventListener('mouseleave', () => {
-      iframe.style.display = 'none';
-      img.style.display = 'block';
-    });
-
-    box.addEventListener('click', () => {
-      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
-    });
-  });
-
+  <script src="../../../script.js">
   </script>
 
 

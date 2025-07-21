@@ -3,27 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JACOB Coaching Classes</title>
-        <link rel="stylesheet" href="Topper.css">
+        <title>JACOB Coaching Classes</title>
+        <link rel="stylesheet" href="../../assets/style/style.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-circle" style="background-image: url('./assets/logo.png')"></div>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="home.html" >HOME</a></li>
-                    <li><a href="Topper.html" >TOPPER</a></li>
-                    <li><a href="#" >ONLINE RESOURCE</a></li>
-                    <li><a href="#" >BLOG</a></li>
-                    <li><a href="#" >Contact US</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <header id="header"></header>
 
     <!-- Search Section -->
     <section class="search-section">
@@ -66,221 +51,176 @@
 
     <!-- Profiles Section -->
     <section class="profiles-section">
-        <div class="profiles-grid" id="profilesGrid">
-            <!-- Profile Cards with Random Percentages -->
-            <div class="profile-card" onclick="viewProfile('profile1')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s1.png')"></div>
-                <div class="profile-name">Jaishiv Gupta</div>
-                <div class="profile-details">96.4%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile2')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s2.png')"></div>
-                <div class="profile-name">Aarti Gupta</div>
-                <div class="profile-details">96.0%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile3')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s3.png')"></div>
-                <div class="profile-name">Disha Maurya</div>
-                <div class="profile-details">93.8%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile4')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s4.png')"></div>
-                <div class="profile-name">Rishitha Suthar</div>
-                <div class="profile-details">93.4%</div>
-            </div>
-            
-            <div class="profile-card" onclick="viewProfile('profile5')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s5.png')"></div>
-                <div class="profile-name">Shreeya Patil</div>
-                <div class="profile-details">93.2%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile6')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s6.png')"></div>
-                <div class="profile-name">Aanchal Pal</div>
-                <div class="profile-details">93.0%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile7')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s7.png')"></div>
-                <div class="profile-name">Aditi Parab</div>
-                <div class="profile-details">92.4%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile8')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s8.png')"></div>
-                <div class="profile-name">Priyanka Singh</div>
-                <div class="profile-details">92.2%</div>
-            </div>
-            
-            <div class="profile-card" onclick="viewProfile('profile9')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s9.png')"></div>
-                <div class="profile-name">Nikita Chaudhary</div>
-                <div class="profile-details">90.8%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile10')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s10.png')"></div>
-                <div class="profile-name">Rimjhim Chaudhary</div>
-                <div class="profile-details">90.6%</div>
-            </div>
-            <div class="profile-card" onclick="viewProfile('profile11')" data-year="2024" data-stream="science" data-class="10">
-                <div class="profile-icon" style="background-image: url('./assets/s11.png')"></div>
-                <div class="profile-name">Janhavi Pandey</div>
-                <div class="profile-details">90.2%</div>
-            </div>
-<div class='profile-card' onclick='viewProfile("profile12")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Deepika Pal</div>
-    <div class='profile-details'>82.50%</div>
-</div>
-<div class='profile-card' onclick='viewProfile("profile16")' data-year='2023' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Shubham Yadav</div>
-    <div class='profile-details'>84.67%</div>
-</div>
-<div class='profile-card' onclick='viewProfile("profile17")' data-year='2023' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Bhavana Gupta</div>
-    <div class='profile-details'>77.83%</div>
-</div>
-<div class='profile-card' onclick='viewProfile("profile18")' data-year='2023' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Deepak Mane</div>
-    <div class='profile-details'>77.33%</div>
-</div>
-<div class='profile-card' onclick='viewProfile("profile19")' data-year='2023' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Diksha Ahire</div>
-    <div class='profile-details'>76%</div>
-</div>
+  <div class="profiles-grid" id="profilesGrid">
+    <!-- Profile Cards with Random Percentages -->
+    <div class="profile-card" onclick="viewProfile('profile1')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s1.png')"></div>
+      <div class="profile-name">Jaishiv Gupta</div>
+      <div class="profile-details">96.4%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile2')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s2.png')"></div>
+      <div class="profile-name">Aarti Gupta</div>
+      <div class="profile-details">96.0%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile3')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s3.png')"></div>
+      <div class="profile-name">Disha Maurya</div>
+      <div class="profile-details">93.8%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile4')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s4.png')"></div>
+      <div class="profile-name">Rishitha Suthar</div>
+      <div class="profile-details">93.4%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile5')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s5.png')"></div>
+      <div class="profile-name">Shreeya Patil</div>
+      <div class="profile-details">93.2%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile6')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s6.png')"></div>
+      <div class="profile-name">Aanchal Pal</div>
+      <div class="profile-details">93.0%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile7')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s7.png')"></div>
+      <div class="profile-name">Aditi Parab</div>
+      <div class="profile-details">92.4%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile8')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s8.png')"></div>
+      <div class="profile-name">Priyanka Singh</div>
+      <div class="profile-details">92.2%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile9')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s9.png')"></div>
+      <div class="profile-name">Nikita Chaudhary</div>
+      <div class="profile-details">90.8%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile10')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s10.png')"></div>
+      <div class="profile-name">Rimjhim Chaudhary</div>
+      <div class="profile-details">90.6%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile11')" data-year="2024" data-stream="science" data-class="10">
+      <div class="profile-icon" style="background-image: url('../../assets/images/s11.png')"></div>
+      <div class="profile-name">Janhavi Pandey</div>
+      <div class="profile-details">90.2%</div>
+    </div>
 
+    <div class="profile-card" onclick="viewProfile('profile12')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Deepika Pal</div>
+      <div class="profile-details">82.50%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile16')" data-year="2023" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Shubham Yadav</div>
+      <div class="profile-details">84.67%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile17')" data-year="2023" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Bhavana Gupta</div>
+      <div class="profile-details">77.83%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile18')" data-year="2023" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Deepak Mane</div>
+      <div class="profile-details">77.33%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile19')" data-year="2023" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Diksha Ahire</div>
+      <div class="profile-details">76%</div>
+    </div>
 
+    <div class="profile-card" onclick="viewProfile('profile13')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Sakshi Jain</div>
+      <div class="profile-details">73.33%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile14')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Shweta Chauhan</div>
+      <div class="profile-details">73.17%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile15')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Debmaliya Mitra</div>
+      <div class="profile-details">70.17%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile16')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Aditi Kadam</div>
+      <div class="profile-details">60.67%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile17')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Sanjana Kushwaha</div>
+      <div class="profile-details">59.00%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile18')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Aarya Pawar</div>
+      <div class="profile-details">58.00%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile19')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Jay Dalvi</div>
+      <div class="profile-details">56.67%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile20')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Shruti Takkekar</div>
+      <div class="profile-details">56.33%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile21')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Kiran Chaudhary</div>
+      <div class="profile-details">53.50%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile22')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Aryan Singh</div>
+      <div class="profile-details">49.33%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile23')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Prem Patil</div>
+      <div class="profile-details">48.33%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile24')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Tannu Chauhan</div>
+      <div class="profile-details">46.33%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile25')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Abhishek Singh</div>
+      <div class="profile-details">43.83%</div>
+    </div>
+    <div class="profile-card" onclick="viewProfile('profile26')" data-year="2024" data-stream="science" data-class="12">
+      <div class="profile-icon" style="background-image: url('../../assets/images/student_logo.png')"></div>
+      <div class="profile-name">Aditya Dubey</div>
+      <div class="profile-details">41.83%</div>
+    </div>
+  </div>
 
-<div class='profile-card' onclick='viewProfile("profile13")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Sakshi Jain</div>
-    <div class='profile-details'>73.33%</div>
-</div>
+  <!-- Search Results Info -->
+  <div id="searchResults" class="search-results-info" style="display: none;">
+    <div class="results-header">
+      <h3>Search Results</h3>
+      <span class="results-count" id="resultsCount">0 students found</span>
+    </div>
+    <div class="active-filters" id="activeFilters"></div>
+    <button class="clear-filters-btn" onclick="clearSearch()">Clear All Filters</button>
+  </div>
+</section>
 
-<div class='profile-card' onclick='viewProfile("profile14")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Shweta Chauhan</div>
-    <div class='profile-details'>73.17%</div>
-</div>
+<div id="footer"></div>
 
-<div class='profile-card' onclick='viewProfile("profile15")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Debmaliya Mitra</div>
-    <div class='profile-details'>70.17%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile16")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Aditi Kadam</div>
-    <div class='profile-details'>60.67%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile17")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Sanjana Kushwaha</div>
-    <div class='profile-details'>59.00%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile18")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Aarya Pawar</div>
-    <div class='profile-details'>58.00%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile19")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Jay Dalvi</div>
-    <div class='profile-details'>56.67%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile20")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Shruti Takkekar</div>
-    <div class='profile-details'>56.33%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile21")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Kiran Chaudhary</div>
-    <div class='profile-details'>53.50%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile22")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Aryan Singh</div>
-    <div class='profile-details'>49.33%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile23")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Prem Patil</div>
-    <div class='profile-details'>48.33%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile24")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Tannu Chauhan</div>
-    <div class='profile-details'>46.33%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile25")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Abhishek Singh</div>
-    <div class='profile-details'>43.83%</div>
-</div>
-
-<div class='profile-card' onclick='viewProfile("profile26")' data-year='2024' data-stream='science' data-class='12'>
-    <div class='profile-icon' style='background-image: url("./assets/student_logo.png");'></div>
-    <div class='profile-name'>Aditya Dubey</div>
-    <div class='profile-details'>41.83%</div>
-</div>
-
-
-            
-        </div>
-        
-        <!-- Search Results Info -->
-        <div id="searchResults" class="search-results-info" style="display: none;">
-            <div class="results-header">
-                <h3>Search Results</h3>
-                <span class="results-count" id="resultsCount">0 students found</span>
-            </div>
-            <div class="active-filters" id="activeFilters"></div>
-            <button class="clear-filters-btn" onclick="clearSearch()">Clear All Filters</button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.7433764885!2d72.87168217520866!3d19.206407782025174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b737d9c491f9%3A0xc359a4ee309f2e33!2sJacob%20Classes!5e0!3m2!1sen!2sin!4v1749825222918!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Contact us</h3>
-                <p><strong>Phone Number:</strong></p>
-                <p>012 345 678 9XXX</p>
-                <p><strong>Email:</strong></p>
-                <p>Service@gmail.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Mumbai</h3>
-                <p>JACOB Coaching Classes</p>
-                <p>1/2 SV Road, 3rd Floor,</p>
-                <p>Archant West, Versova, MH</p>
-                <p>400058</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 JACOB Coaching Classes - All rights reserved. | Privacy Policy</p>
-        </div>
-    </footer>
-
-    <script src="TOPPER.js"></script>
+<script src="../../../script.js"></script>
 </body>
 </html>
 
