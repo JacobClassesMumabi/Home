@@ -122,33 +122,20 @@ document.addEventListener('click', e => {
         });
       });
 
-    fetch('../partitions/header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-
-    // Load footer
-    fetch('../partitions/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
-
 //online-resource
 
- fetch('../partitions/header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
+ fetch('./components/header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
 
     // Load footer
-    fetch('../partitions/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
+  fetch('./components/footer.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
 
       const videoContainers = document.querySelectorAll('.video-container');
 
@@ -201,46 +188,20 @@ document.addEventListener('click', e => {
 
 // sign-up
 
-  // Header
-    fetch('../partitions/header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
 
-    // Footer
-    fetch('../partitions/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
-
-    // Show/hide password
-    document.addEventListener("DOMContentLoaded", () => {
-      const showPwd = document.getElementById("showPwd");
-      const pwd = document.getElementById("password");
-      showPwd.addEventListener("change", () => {
-        pwd.type = showPwd.checked ? "text" : "password";
-      });
-    });
+// Show/hide password
+document.addEventListener("DOMContentLoaded", () => {
+  const showPwd = document.getElementById("showPwd");
+  const pwd = document.getElementById("password");
+  showPwd.addEventListener("change", () => {
+    pwd.type = showPwd.checked ? "text" : "password";
+  });
+});
 
 
 
 
 //Topper 
-
-       fetch('../partitions/header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      });
-
-    // Load footer
-    fetch('../partitions/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      });
 
       // Search filter functionality
         function searchProfiles() {
