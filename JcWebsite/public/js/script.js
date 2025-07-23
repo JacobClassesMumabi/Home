@@ -21,6 +21,23 @@ fetch('./components/footer.html')
   document.getElementById('footer').innerHTML = data;
 });
 
+
+//for home page
+fetch('JcWebsite/public/components/header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+});
+
+  // Load footer
+fetch('JcWebsite/public/components/footer.html')
+.then(res => res.text())
+.then(data => {
+  document.getElementById('footer').innerHTML = data;
+});
+
+
+
 //home   
 // Slider functionality
 let currentSlide = 0;
