@@ -48,6 +48,40 @@ function showSlide(slideIndex) {
   currentSlide = slideIndex;
 }
 
+//Hero page quotes
+const quotes = [
+    {
+      text: "Knowing God is the beginning of knowledge",
+      author: "Proverbs 1:7"
+    },
+    {
+      text: "Learning gives creativity, creativity leads to thinking, thinking provides knowledge, and knowledge makes you great.",
+      author: "APJ Abdul Kalam"
+    },
+    {
+      text: "Excellence is never an accident. It is always the result of high intention, sincere effort, and intelligent execution.",
+      author: "Aristotle"
+    }
+  ];
+
+  let index = 0;
+
+  function rotateQuote() {
+    const quoteText = document.getElementById("quote-text");
+    const quoteAuthor = document.getElementById("quote-author");
+
+    quoteText.textContent = quotes[index].text;
+    quoteAuthor.textContent = "- " + quotes[index].author;
+
+    index = (index + 1) % quotes.length;
+  }
+
+// Rotate every 5 seconds
+setInterval(rotateQuote, 5000);
+
+// Initial display
+rotateQuote();
+
 // Auto-advance slides every 8 seconds
 function autoAdvanceSlides() {
   currentSlide = (currentSlide + 1) % totalSlides;
