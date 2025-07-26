@@ -6,78 +6,8 @@
   <title>Online Resources</title>
   <link rel="stylesheet" href="./style.css">
 </head>
-
-<style>
-
-.parentContainer{
-  /* background-color: gray;  */
-  height: 100%; 
-  width: 90%;  
-  display: flex;
-  justify-content: space-evenly;
-  margin: 5%;
-}
-.childContainer{
-  /* background-color: pink;  */
-  height: 300px; 
-  width:450px; 
-  margin-right: 10%;
-  border-radius: 20px;
-  border: solid 1px black;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-.childContainer img,
-.childContainer iframe {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  object-fit: cover;
-  display: block;
-}
-
-.childContainer iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-}
-#titlePlaylist {
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.playlistContainer {
-  width: 90%;
-  margin: 40px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-#playlistPC{
-  margin-bottom: 50px;
-}
-
-@media (max-width: 768px) {
-  .parentContainer {
-    flex-direction: column; 
-    align-items: center;
-    margin: 10px;
-  }
-  .childContainer {
-    width: 70%;
-    height: 200px;
-    margin: 0;
-    margin-top: 10%;
-  }
-}
-</style>
 <body>
-
-  <div id="header"></div>
+      <div id="header"></div>
 
   <main>
     <div class="parentContainer">
@@ -143,16 +73,112 @@
         </div>
         
       </div>
-
-
   </main>
-  
 
-  <div id="footer"></div>
+    <div id="footer"></div>
 
-  <script src="./script.js">
-  </script>
 
+ <script >
+ //fetch-header and footer
+    fetch('./components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+    });
+
+      // Load footer
+    fetch('./components/footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });  
+  // Wait for DOM to be fully loaded
+ document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing video boxes...');
+      
+      const videoBoxes = document.querySelectorAll('.video-box');
+      console.log(`Found ${videoBoxes.length} video boxes`);
+      
+      if (videoBoxes.length === 0) {
+        console.warn('No video boxes found on this page');
+        return;
+      }
+      
+      videoBoxes.forEach((box, index) => {
+        const videoId = box.getAttribute('data-id');
+        console.log(`Processing video box ${index + 1} with ID: ${videoId}`);
+        
+        if (!videoId) {
+          console.error(`No video ID found for box ${index + 1}`);
+          return;
+        }
+
+        // Clear any existing content
+        box.innerHTML = '';
+
+        // Create thumbnail image
+        const img = document.createElement('img');
+        img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        img.alt = `YouTube video thumbnail for ${videoId}`;
+        img.loading = 'lazy';
+        
+        // Handle image load errors
+        img.onerror = function() {
+          console.warn(`Thumbnail failed to load for video ID: ${videoId}`);
+          // Try maxresdefault as fallback
+          if (this.src.includes('hqdefault')) {
+            this.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+          } else {
+            // Create a placeholder if both fail
+            this.style.backgroundColor = '#f0f0f0';
+            this.style.display = 'flex';
+            this.style.alignItems = 'center';
+            this.style.justifyContent = 'center';
+            this.innerHTML = `<span style="color: #666;">Video: ${videoId}</span>`;
+          }
+        };
+        
+        box.appendChild(img);
+
+        // Create iframe for video preview
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&loop=1&playlist=${videoId}`;
+        iframe.frameBorder = '0';
+        iframe.allow = 'autoplay; encrypted-media';
+        iframe.allowFullscreen = true;
+        
+        box.appendChild(iframe);
+
+        // Mouse enter event
+        box.addEventListener('mouseenter', () => {
+          console.log(`Mouse entered video box with ID: ${videoId}`);
+          box.classList.add('playing');
+        });
+
+        // Mouse leave event
+        box.addEventListener('mouseleave', () => {
+          console.log(`Mouse left video box with ID: ${videoId}`);
+          box.classList.remove('playing');
+          
+          // Reset iframe to stop video
+          const currentSrc = iframe.src;
+          iframe.src = '';
+          setTimeout(() => {
+            iframe.src = currentSrc;
+          }, 100);
+        });
+
+        // Click event to open YouTube
+        box.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(`Clicked video box with ID: ${videoId}`);
+          window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+        });
+      });
+      
+      console.log('Video box initialization complete');
+    });
+ </script>
 
 </body>
 </html>

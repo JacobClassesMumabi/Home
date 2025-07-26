@@ -168,55 +168,92 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//online-resource
-const videoContainers = document.querySelectorAll('.video-container');
+// Wait for DOM to be fully loaded
+ document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing video boxes...');
+      
+      const videoBoxes = document.querySelectorAll('.video-box');
+      console.log(`Found ${videoBoxes.length} video boxes`);
+      
+      if (videoBoxes.length === 0) {
+        console.warn('No video boxes found on this page');
+        return;
+      }
+      
+      videoBoxes.forEach((box, index) => {
+        const videoId = box.getAttribute('data-id');
+        console.log(`Processing video box ${index + 1} with ID: ${videoId}`);
+        
+        if (!videoId) {
+          console.error(`No video ID found for box ${index + 1}`);
+          return;
+        }
 
-videoContainers.forEach(container => {
-  const video = container.querySelector('video');
-  const link = container.getAttribute('data-link');
+        // Clear any existing content
+        box.innerHTML = '';
 
-  // Play video on hover
-  container.addEventListener('mouseenter', () => {
-    video.play();
-  });
+        // Create thumbnail image
+        const img = document.createElement('img');
+        img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        img.alt = `YouTube video thumbnail for ${videoId}`;
+        img.loading = 'lazy';
+        
+        // Handle image load errors
+        img.onerror = function() {
+          console.warn(`Thumbnail failed to load for video ID: ${videoId}`);
+          // Try maxresdefault as fallback
+          if (this.src.includes('hqdefault')) {
+            this.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+          } else {
+            // Create a placeholder if both fail
+            this.style.backgroundColor = '#f0f0f0';
+            this.style.display = 'flex';
+            this.style.alignItems = 'center';
+            this.style.justifyContent = 'center';
+            this.innerHTML = `<span style="color: #666;">Video: ${videoId}</span>`;
+          }
+        };
+        
+        box.appendChild(img);
 
-  // Pause video on mouse leave
-  container.addEventListener('mouseleave', () => {
-    video.pause();
-    video.currentTime = 0; // Optional: Reset to beginning
-  });
+        // Create iframe for video preview
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&loop=1&playlist=${videoId}`;
+        iframe.frameBorder = '0';
+        iframe.allow = 'autoplay; encrypted-media';
+        iframe.allowFullscreen = true;
+        
+        box.appendChild(iframe);
 
-  // Redirect to YouTube on click
-  container.addEventListener('click', () => {
-    window.open(link, '_blank'); // Opens in new tab
-  });
-});
+        // Mouse enter event
+        box.addEventListener('mouseenter', () => {
+          console.log(`Mouse entered video box with ID: ${videoId}`);
+          box.classList.add('playing');
+        });
 
-// YouTube hover preview logic
-document.querySelectorAll('.video-box').forEach(box => {
-  const videoId = box.getAttribute('data-id');
-  const img = document.createElement('img');
-  img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  box.appendChild(img);
+        // Mouse leave event
+        box.addEventListener('mouseleave', () => {
+          console.log(`Mouse left video box with ID: ${videoId}`);
+          box.classList.remove('playing');
+          
+          // Reset iframe to stop video
+          const currentSrc = iframe.src;
+          iframe.src = '';
+          setTimeout(() => {
+            iframe.src = currentSrc;
+          }, 100);
+        });
 
-  const iframe = document.createElement('iframe');
-  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0`;
-  box.appendChild(iframe);
-
-  box.addEventListener('mouseenter', () => {
-    iframe.style.display = 'block';
-    img.style.display = 'none';
-  });
-
-  box.addEventListener('mouseleave', () => {
-    iframe.style.display = 'none';
-    img.style.display = 'block';
-  });
-
-  box.addEventListener('click', () => {
-    window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
-  });
-});
+        // Click event to open YouTube
+        box.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(`Clicked video box with ID: ${videoId}`);
+          window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+        });
+      });
+      
+      console.log('Video box initialization complete');
+    });
 
 //Topper 
 
